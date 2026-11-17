@@ -1,30 +1,4 @@
-# React TMDB Client
 
-A React Movies application using [The Movie Database (TMDb)](https://developers.themoviedb.org) API.
-
-## Quick Setup
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/pirateIV/movies.git
-   cd movies or cd custom-path
-   ```
-
-2. **Create and configure the environment file:**
-
-   - Rename your `.env.sample` file to `.env`.
-
-3. **Obtain API keys:**
-
-   - Get your [TMDb API key](https://developers.themoviedb.org/3/getting-started/introduction).
-   - (Optional) Get your [YouTube API key](https://developers.google.com/youtube/v3/getting-started) for video data.
-
-4. **Enter the API keys into the `.env` file:**
-   ```env
-   VITE_TMDB_API_KEY=your_tmdb_api_key
-   VITE_YOUTUBE_API_KEY=your_youtube_api_key
-   ```
 
 ## Running the Application
 
@@ -86,11 +60,3 @@ react-movies/
 3. Commit your changes (`git commit -m 'Add some feature'`).
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
-
-# Credits
-
-This project idea is gotten from the foundational work by [jason.codes](https://movies.jason.codes/)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
