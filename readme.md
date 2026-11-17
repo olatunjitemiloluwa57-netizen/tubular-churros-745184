@@ -1,18 +1,3 @@
-
-
-## Running the Application
-
-1. **Install dependencies:**
-
-   ```bash
-   npm install
-   ```
-
-2. **Start the development server at `localhost:5173`:**
-   ```bash
-   npm run dev
-   ```
-
 ## Project Structure
 
 ```
