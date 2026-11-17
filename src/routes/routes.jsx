@@ -1,0 +1,62 @@
+import { createBrowserRouter } from "react-router-dom";
+
+import App from "@/App";
+import Movies from "@/pages/genre/[no]/movie";
+import TVShows from "@/pages/genre/[no]/tv";
+import MediaType from "@/pages/[type]/[id]";
+import MediaQuery from "@/pages/[type]/category/[query]";
+import Search from "@/pages/search";
+import Tickets from "@/pages/tickets";
+import NotFoundPage from "@/pages/error";
+import Person from "@/pages/person";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/movie",
+        element: <Movies />,
+      },
+      {
+        path: "/tv",
+        element: <TVShows />,
+      },
+      {
+        path: "/movie/:id",
+        element: <MediaType />,
+      },
+      {
+        path: "/tv/:id",
+        element: <MediaType />,
+      },
+      {
+        path: "/movie/category/:query",
+        element: <MediaQuery />,
+      },
+      {
+        path: "/tv/category/:query",
+        element: <MediaQuery />,
+      },
+      {
+        path: "/person/:id",
+        element: <Person />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
+      },
+      {
+        path: "/tickets",
+        element: <Tickets />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
+  },
+]);
+
+export default router;

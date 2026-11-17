@@ -1,0 +1,53 @@
+const imgBaseURL = "https://movies-proxy.vercel.app/ipx/f_webp&s_400x600/tmdb/";
+
+const Photos = ({ item }) => {
+  const backdrops = item?.images?.backdrops ?? [];
+  const posters = item?.images?.posters ?? [];
+
+  return (
+    <div className="flex flex-col px-4 py-8 gap-6 md:px-16">
+      <div className="flex gap-2 items-baseline">
+        <div className="text-2xl">Backdrops </div>
+        <div className="text-sm opacity-50">{backdrops.length} images</div>
+      </div>
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-4">
+        {backdrops.map((image, i) => (
+          <button
+            key={i}
+            className="relative w-full overflow-hidden aspect-video transition duration-300 hover:scale-[1.02] z-10"
+            title="View Photo"
+          >
+            <img
+              width="400"
+              height="600"
+              src={imgBaseURL + image.file_path}
+              className="w-full h-full object-cover"
+            />
+          </button>
+        ))}
+      </div>
+      <div className="flex gap-2 items-baseline">
+        <div className="text-2xl">Posters </div>
+        <div className="text-sm opacity-50">{posters.length} images</div>
+      </div>
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-4 lg:grid-cols-[repeat(auto-fill,minmax(15rem,1fr))]">
+        {posters.map((image, i) => (
+          <button
+            key={i}
+            className="text-left block aspect-9/16 transition duration-300 hover:scale-[1.02] z-10"
+            title="View Photo"
+          >
+            <img
+              width="400"
+              height="600"
+              src={imgBaseURL + image.file_path}
+              className="w-full h-full object-cover"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Photos;

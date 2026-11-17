@@ -1,0 +1,29 @@
+[build]
+  command = "pnpm run build"
+  publish = "dist"
+
+# SPA client routes -> app shell (specific paths only, so /api/* still reaches functions)
+[[redirects]]
+  from = "/tickets"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/movie/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/tv/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/person/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/search"
+  to = "/index.html"
+  status = 200

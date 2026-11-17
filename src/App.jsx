@@ -1,0 +1,37 @@
+import { Outlet, useLocation } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import MediaComponent from "@/pages";
+import NavBar from "@/components/NavBar";
+import { DialogProvider } from "./context/DialogContext";
+import TrailerModal from "@/components/media/TrailerModal";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: 1,
+    },
+  },
+});
+
+const App = () => {
+  const { pathname } = useLocation();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <DialogProvider>
+        <div className="relative font-sans h-full w-full">
+          <div className="h-full w-full grid grid-rows-[1fr_max-content] lg:grid-rows-none lg:grid-cols-[max-content_1fr]">
+            <title>React Movies</title>
+            {pathname === "/" ? <MediaComponent isRoot={true} /> : <Outlet />}
+            <NavBar />
+          </div>
+        </div>
+        <TrailerModal />
+      </DialogProvider>
+    </QueryClientProvider>
+  );
+};
+
+export default App;
